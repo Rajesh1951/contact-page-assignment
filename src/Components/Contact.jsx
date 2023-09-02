@@ -44,7 +44,7 @@ function Contact() {
       setValidity(prev => {
         return {
           ...prev,
-          name: /^[A-Za-z]+$/gi.test(value)
+          name: /^([A-Za-z]+)(?:\s+([A-Za-z]+))?$/.test(value)
         }
       })
     }
@@ -151,7 +151,7 @@ function Contact() {
   return (
     <Container className='mt-4'>
       <Alert color="info" isOpen={visible} toggle={onDismiss}>
-        Your message has been successfully sent, and you are currently in position {queue} in the queue.
+        Your message has been successfully sent, and you are currently in position <span style={{ fontWeight: 'bold' }}>{queue}</span> in the queue.
       </Alert>
       <div className="flexContainer">
         <div className="left d-flex flex-column w-auto">
